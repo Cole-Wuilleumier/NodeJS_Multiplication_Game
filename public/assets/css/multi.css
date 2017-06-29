@@ -1,0 +1,27 @@
+.multi_table{
+    width:800px;
+}
+.multi_table, th, td{
+    padding: 10px;
+     border: 1px solid black;
+}
+
+.multi_table input[type="text"] {
+    width: 100%;
+    height:100%;
+}
+
+#player_list{
+    width:150px;
+    float:left;
+    font-size:20px;
+    margin-top: 20px;
+}
+
+#player_list ul{
+    padding:0 10px;
+}
+#player_list ul li{
+    padding:0 10px;
+    list-style-type: none;
+}

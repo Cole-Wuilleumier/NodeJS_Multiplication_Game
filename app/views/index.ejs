@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+	<head>
+		<title><%= title %></title>
+	</head>
+
+	<body>
+
+       <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+	   <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+	   <link rel="stylesheet" href="assets/css/multi.css">
+
+	   <script src="/socket.io/socket.io.js"></script>
+        <h1>Chat_app</h1>
+		<section ng-view></section>
+		<script type="text/javascript" src="/angular.js"></script>
+		<script type="text/javascript" src="/angular-resource/angular-resource.js"></script>
+		<script type="text/javascript" src="/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="/application.js"></script>
+
+		<script type="text/javascript" src="/user/user.client.module.js"></script>
+		<script type="text/javascript" src="/user/controllers/user.client.controller.js"></script>
+		<script type="text/javascript" src="/user/config/user.client.routes.js"></script>
+
+		<script type="text/javascript" src="/example/example.client.module.js"></script>
+		<script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+		<script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+
+		<script type="text/javascript" src="/chat/chat.client.module.js"></script>
+		<script type="text/javascript" src="/chat/services/chat.client.service.js"></script>
+		<script type="text/javascript" src="/chat/controllers/chat.client.controller.js"></script>
+		<script type="text/javascript" src="/chat/config/chat.client.routes.js"></script>
+		
+		<script type="text/javascript" src="/multiplication/multi.client.module.js"></script>
+		<script type="text/javascript" src="/multiplication/services/multi.client.service.js"></script>
+		<script type="text/javascript" src="/multiplication/controllers/multi.client.controller.js"></script>
+		<script type="text/javascript" src="/multiplication/config/multi.client.routes.js"></script>
+
+	</body>
+</html>

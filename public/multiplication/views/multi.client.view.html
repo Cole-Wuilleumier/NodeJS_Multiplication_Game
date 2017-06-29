@@ -1,0 +1,38 @@
+<section data-ng-controller="MultiController">
+    <aside id="player_list">
+        <ul  data-ng-repeat="user in users">
+            <li>{{ user.name }} {{user.score}}</li>
+        </ul>
+    </aside>
+
+        <button ng-click="startGame()" ng-hide="user_ready==true">Start Game</button>
+        <div ng-show="user_ready && !start" >Waiting for other players...</div>
+        <div ng-show="gameOver">GAME OVER! HERE ARE THE WINNERS</div>
+        <table class="multi_table" ng-show="start==true">
+            <tr>
+                <td></td>
+                <th ng-repeat="number in answers">
+                    {{number[0].answer}}
+                </th>
+            </tr>
+                <tr ng-repeat="number in answers" >
+                    
+                    <th>{{number[0].answer}}</th>
+                    <td ng-repeat="snumber in number track by $index">
+                        
+                        <!--<div>{{snumber.answer}}</div>-->
+                       <form ng-submit='check()' ng-show="snumber.correct == false">
+                            <input type="text" data-ng-model="guess" autofocus> 
+                            <input  type="submit" style="display: none;">
+                        </form>
+                        <div ng-show="snumber.correct == true">{{ snumber.answer }}</div>
+
+                    </td> 
+                </tr>
+        </table>
+       <input type="submit"  style="display: none;">
+    </form>
+
+
+
+</section>
