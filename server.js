@@ -42,10 +42,13 @@ app.get('/', index.render);
 require('./app/routes/user.server.routes.js')(app);
 
 var current_users = [];
+
 io.on('connection', function(socket) {
-	if(socket.request.session.name != ""){
-		require('./app/controllers/multi.server.controller')(io, socket, current_users);
-	}	
+
+	if(socket.request.session.name != "" && socket.request.session.room != ""){
+			var room = socket.request.session.room;
+			require('./app/controllers/multi.server.controller')(io, socket, current_users, room);
+	}		
 });
 
 server.listen(process.env.PORT || 3000);  

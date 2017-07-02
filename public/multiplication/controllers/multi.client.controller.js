@@ -1,6 +1,7 @@
 angular.module('multi').controller('MultiController', ['$scope', '$http', '$location', 'Socket',
     	function($scope, $http, $location, Socket) {
-
+            
+            
             $scope.startGame = function(){
                 $scope.user_ready = true;
                 Socket.emit('gameON', {});
@@ -13,7 +14,13 @@ angular.module('multi').controller('MultiController', ['$scope', '$http', '$loca
             //Client accepts an empty table with all table.answers.correct set to false
             Socket.on('create_table', function(table) {
 			    $scope.answers = table.answers;
-                $scope.users = table.current_users
+                $scope.room = table.room;
+                $scope.users = [];
+                for(var x = 0; x < table.current_users.length; x++){
+                    if(table.current_users[x].room == $scope.room){
+                        $scope.users.push(table.current_users[x]);
+                    }
+                }
 		    });
             
             
@@ -35,7 +42,14 @@ angular.module('multi').controller('MultiController', ['$scope', '$http', '$loca
                         }
                     }
                 }
-                $scope.users = table.current_users
+                for(var x = 0; x < table.current_users.length; x++){
+                        for(var y = 0; y < $scope.users.length; y++){
+                            if($scope.users[y].id == table.current_users[x].id)
+                            {
+                                $scope.users[y] = table.current_users[x];
+                            }
+                        }
+                }
 		    });
 
 

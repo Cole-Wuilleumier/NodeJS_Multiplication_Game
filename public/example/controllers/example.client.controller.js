@@ -1,6 +1,5 @@
 
-angular.module('example').controller('ExampleController', ['$scope',
-	function($scope) {
-		
+angular.module('example').controller('ExampleController', ['$scope', '$location',
+	function($scope, $location) {
 	}
 ]);

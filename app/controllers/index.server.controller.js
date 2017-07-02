@@ -1,6 +1,6 @@
 exports.render = function(req, res){
     res.render('index', {
-		title:"Chat App"
+		title:"Multiplication Game"
 	});
 };
 
