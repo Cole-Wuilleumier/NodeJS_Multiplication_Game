@@ -1,14 +1,26 @@
 angular.module('multi').controller('MultiController', ['$scope', '$http', '$location', 'Socket',
     	function($scope, $http, $location, Socket) {
             
-            
+
             $scope.startGame = function(){
                 $scope.user_ready = true;
                 Socket.emit('gameON', {});
             }
 
             Socket.on('gameON', function(){
-                $scope.start = true;
+                $scope.countDown = true;
+                var countDownNum = 3;
+                $scope.countDownNum = setInterval(function(){
+                    if(countDownNum > 0){
+                        return countDownNum;
+                    } else {
+                        clearInterval();
+                        return "Go!";
+                    }
+                }, 1000);
+               // $scope.countDownNum = "Go!";
+               // $scope.countDown = false;
+               // $scope.start = true;
             });
 
             //Client accepts an empty table with all table.answers.correct set to false
@@ -50,6 +62,7 @@ angular.module('multi').controller('MultiController', ['$scope', '$http', '$loca
                             }
                         }
                 }
+                $scope.users.sort(function(a,b) {return (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0);} );
 		    });
 
 
@@ -58,6 +71,7 @@ angular.module('multi').controller('MultiController', ['$scope', '$http', '$loca
 
             Socket.on('gameOver', function(current_users){
                 $scope.gameOver = true;
+
             });
 
 

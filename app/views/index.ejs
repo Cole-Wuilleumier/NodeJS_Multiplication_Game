@@ -11,10 +11,12 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-	   <link rel="stylesheet" href="assets/css/multi.css">
+		<link rel="stylesheet" href="assets/css/tablet.css" media ="all and (max-width:720px)">
+	   <link rel="stylesheet" href="assets/css/desktop.css" media="all and (min-width:720px)">
+	  
 
 	   <script src="/socket.io/socket.io.js"></script>
-        <h1><%= title %></h1>
+        <img height="100px"src= <%= logo %> >
 		<section ng-view></section>
 		<script type="text/javascript" src="/angular.js"></script>
 		<script type="text/javascript" src="/angular-resource/angular-resource.js"></script>

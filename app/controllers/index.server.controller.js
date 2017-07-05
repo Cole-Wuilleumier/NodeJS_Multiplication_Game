@@ -1,6 +1,7 @@
 exports.render = function(req, res){
     res.render('index', {
-		title:"Multiplication Game"
+		title:"MULTABLE",
+		logo:"assets/images/Multable.png"
 	});
 };
 

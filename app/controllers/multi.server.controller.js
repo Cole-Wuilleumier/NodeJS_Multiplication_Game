@@ -11,10 +11,8 @@ module.exports = function(io, socket, current_users, room) {
 	};
 
 	current_users.push(user);
-	console.log(current_users);
 	
 	io.to(room).emit('new_connection', current_users);
-
 
 
 
@@ -55,7 +53,6 @@ module.exports = function(io, socket, current_users, room) {
 				startCounter++;
 			}
 		}
-		console.log("startCounter: "+startCounter+"      roomCounter:"+roomCounter+"    current_users.length: "+current_users.length);
 
 		if(startCounter >= roomCounter){
 		//if all players are marked as ready
@@ -65,15 +62,26 @@ module.exports = function(io, socket, current_users, room) {
 
 	//update_table definition
 	socket.on('update_table', function(table) {	
+		var check_user = "";
 		for(var x = 0; x < current_users.length; x++){
 			if(current_users[x].id == socket.id){
-				current_users[x].score+=1;
+				check_user = current_users[x];
+				current_users[x].score += 20;
+				pointCounter = 0;
+				for(var i = 0; i < current_users.length; i++){
+					console.log(current_users[i].score);
+					if(current_users[i].room == check_user.room){
+						pointCounter+=current_users[i].score;
+					}
+				}
+			if(pointCounter == totalPoints){
+				console.log("worked" + pointCounter);
+				io.to(room).emit('gameOver', current_users);
 			}
+			}
+
 		}
-		pointCounter++;
-		if(pointCounter == totalPoints){
-			io.to(room).emit('gameOver', current_users);
-		}
+
 		table = table;
 		io.to(room).emit('update_table', {answers:table, current_users:current_users});
 	}); //End update_table()

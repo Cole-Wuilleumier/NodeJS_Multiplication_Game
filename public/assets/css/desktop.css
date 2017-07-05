@@ -1,0 +1,65 @@
+body{
+    background-color:#5522aa;
+    color:#eee;
+}
+#login input, select, option{
+    color:#000;
+}
+#mainGame button{
+    color:#000;
+}
+.multi_table{
+    width:800px;
+}
+.multi_table input[type="number"]{
+    display: block;
+  margin: 0;
+  height:100%;
+  width: 100%;
+
+}
+.multi_table input[type=number]::-webkit-inner-spin-button, 
+.multi_table input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.multi_table td{
+    color:#e00;
+    margin: 10px;
+}
+.multi_table, th, td{
+      font-size: 30px;
+     border: 1px solid black;
+}
+
+.multi_table input[type="text"] {
+    width: 100%;
+    height:100%;
+}
+
+#player_list{
+    width:150px;
+    height:23.75em;
+    float:left;
+    font-size:20px;
+    background-color:#aa2255;
+}
+
+#player_list ul{
+    padding:0 10px;
+}
+#player_list ul li{
+    padding:0 10px;
+    list-style-type: none;
+}
+
+.gameStats {
+    width:500px;
+    margin:0 auto;
+}
+
+.gameStats table td{
+    background-color:#00E;
+}

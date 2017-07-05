@@ -1,14 +1,32 @@
-<section data-ng-controller="MultiController">
-    <aside id="player_list">
+<section data-ng-controller="MultiController" id="mainGame">
+    <h3>Room {{room}}</h3>
+    <aside id="player_list" ng-hide="gameOver">
         <ul  data-ng-repeat="user in users">
             <li>{{ user.name }} {{user.score}}</li>
         </ul>
     </aside>
 
-        <button ng-click="startGame()" ng-hide="user_ready==true">Start Game</button>
-        <div ng-show="user_ready && !start" >Waiting for other players...</div>
-        <div ng-show="gameOver">GAME OVER! HERE ARE THE WINNERS</div>
-        <table class="multi_table" ng-show="start==true">
+        <button ng-click="startGame()" ng-hide="user_ready">Start Game</button>
+        <div ng-show="user_ready && !start && !countDown" >Waiting for other players...</div>
+        
+        <div id="countDown" ng-show="user_ready && countDown && !start">
+            <h1>{{countDownNum}}</h1>
+
+        </div>
+
+        <div ng-show="gameOver" class="gameStats">
+            GAME OVER!
+            <table>
+                <tr ng-repeat="user in users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.score}}</td>
+                </tr>
+            </table>
+        </div>
+
+
+
+        <table class="multi_table" ng-show="start && !gameOver && !countDown">
             <tr>
                 <td></td>
                 <th ng-repeat="number in answers">
@@ -22,7 +40,7 @@
                     <td ng-repeat="snumber in number track by $index">
                             <!--<div>{{snumber.answer}}</div>-->
                             <div ng-hide="snumber.correct == true">
-                                <input type="text" name="guess"  ng-change="check()" data-ng-model="guess">
+                                <input type="number" name="guess"  ng-change="check()" data-ng-model="guess">
                             </div>
                             <div ng-show="snumber.correct == true">{{ snumber.answer }}</div>
                     </td> 

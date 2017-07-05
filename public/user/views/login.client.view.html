@@ -1,7 +1,19 @@
 <section data-ng-controller="UserController">
-    <form ng-submit="login();">
-        <input type="text" data-ng-model="formData.name" placeholder="Enter name"><br>
-        <input type="text" data-ng-model="formData.room" placeholder="Enter room name"><br>
-        <input type="submit">
-    </form>
+    <div id="login">
+        <h3>Enter a Username and Game Room Number</h3>
+        <form ng-submit="login();">
+            <input type="text" data-ng-model="formData.name" placeholder="Enter name"><br>
+            <select  data-ng-model="formData.room">
+                <option value="1">room 1</option>
+                <option value="2">room 2</option>
+                <option value="3">room 3</option>
+                <option value="4">room 4</option>
+                <option value="5">room 5</option>
+                <option value="6">room 6</option>
+                <option value="7">room 7</option>
+                <option value="8">room 8</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </section>
