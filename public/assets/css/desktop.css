@@ -1,9 +1,29 @@
 body{
-    background-color:#5522aa;
+    background: #5522aa; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right top, #5522aa, #aa2255); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right top, #5522aa, #aa2255); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right top, #5522aa, #aa2255); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(right top, #5522aa, #aa2255); /* Standard syntax */
+    
     color:#eee;
+}
+
+#login{
+    width:500px;
+    margin:0 auto;
 }
 #login input, select, option{
     color:#000;
+}
+
+#login input[type="text"]{
+    color:#eee;
+    background-color:#0da;
+    font-size: 30px;
+    margin:0 auto;
+    width:500px;   
+}
+#login select{ 
 }
 #mainGame button{
     color:#000;

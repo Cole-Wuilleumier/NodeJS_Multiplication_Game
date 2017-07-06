@@ -1,5 +1,5 @@
-angular.module('multi').controller('MultiController', ['$scope', '$http', '$location', 'Socket',
-    	function($scope, $http, $location, Socket) {
+angular.module('multi').controller('MultiController', ['$scope', '$http', '$location', '$interval','Socket',
+    	function($scope, $http, $location, $interval,Socket ) {
             
 
             $scope.startGame = function(){
@@ -9,18 +9,20 @@ angular.module('multi').controller('MultiController', ['$scope', '$http', '$loca
 
             Socket.on('gameON', function(){
                 $scope.countDown = true;
-                var countDownNum = 3;
-                $scope.countDownNum = setInterval(function(){
-                    if(countDownNum > 0){
-                        return countDownNum;
-                    } else {
-                        clearInterval();
-                        return "Go!";
-                    }
-                }, 1000);
-               // $scope.countDownNum = "Go!";
-               // $scope.countDown = false;
-               // $scope.start = true;
+                $scope.countDownNum = 3;
+                
+                var promise = $interval(function () {
+                        if($scope.countDownNum > 1){
+                            $scope.countDownNum--;
+                            console.log("Worked");
+                        } else {
+                            console.log("worked");
+                            $interval.cancel(promise);
+                            $scope.countDownNum = "Go!";
+                            $scope.countDown = false;
+                            $scope.start = true;
+                        }
+                    }, 800);
             });
 
             //Client accepts an empty table with all table.answers.correct set to false

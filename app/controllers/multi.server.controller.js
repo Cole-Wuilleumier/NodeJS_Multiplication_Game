@@ -66,7 +66,7 @@ module.exports = function(io, socket, current_users, room) {
 		for(var x = 0; x < current_users.length; x++){
 			if(current_users[x].id == socket.id){
 				check_user = current_users[x];
-				current_users[x].score += 20;
+				current_users[x].score += 1;
 				pointCounter = 0;
 				for(var i = 0; i < current_users.length; i++){
 					console.log(current_users[i].score);
