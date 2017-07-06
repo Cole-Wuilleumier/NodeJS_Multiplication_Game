@@ -8,9 +8,19 @@ body{
     color:#eee;
 }
 
+#logo{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    margin-top:-100px;
+    margin-left:-150px;
+}
 #login{
-    width:500px;
-    margin:0 auto;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    margin-top:-100px;
+    margin-left:-200px;
 }
 #login input, select, option{
     color:#000;
