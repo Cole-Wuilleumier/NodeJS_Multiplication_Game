@@ -1,9 +1,8 @@
 <section data-ng-controller="UserController">
     <div id="login">
-        <h3>Enter a Username and Game Room Number</h3>
         <form ng-submit="login();">
             <input type="text" data-ng-model="formData.name" placeholder="Enter name"><br>
-            <select  data-ng-model="formData.room">
+            <label>Select a room: &nbsp;</label><select  data-ng-model="formData.room">
                 <option value="1">room 1</option>
                 <option value="2">room 2</option>
                 <option value="3">room 3</option>
@@ -13,7 +12,7 @@
                 <option value="7">room 7</option>
                 <option value="8">room 8</option>
             </select>
-            <input type="submit" value="Submit">
+            <br><input type="submit" value="Submit">
         </form>
     </div>
 </section>

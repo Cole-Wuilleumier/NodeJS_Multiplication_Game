@@ -4,6 +4,7 @@ body{
     background: -o-linear-gradient(right top, #5522aa, #aa2255); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right top, #5522aa, #aa2255); /* For Firefox 3.6 to 15 */
     background: linear-gradient(right top, #5522aa, #aa2255); /* Standard syntax */
+   
     
     color:#eee;
 }
@@ -14,6 +15,24 @@ body{
     left: 50%;
     margin-top:-100px;
     margin-left:-150px;
+}
+
+#logo ul{
+    display: block;
+    margin-left: -55px;   
+    
+}
+#logo li{
+    display: inline-block;
+    padding:10px;
+    margin: 20px;
+    font-size:1.5em;
+    text-decoration: none;  
+}
+#logo li a:hover{
+    text-decoration: none;
+    color: #00ccff;
+    
 }
 #login{
     position:fixed;
@@ -31,7 +50,7 @@ body{
     background-color:#0da;
     font-size: 30px;
     margin:0 auto;
-    width:500px;   
+    width:300px;   
 }
 #login select{ 
 }
