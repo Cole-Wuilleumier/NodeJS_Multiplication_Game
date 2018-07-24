@@ -5,7 +5,7 @@
 var mainApplicationModuleName = 'mean';
 
 // Create the main application
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource','ngRoute', 'example','chat', 'user', 'multi']);
+var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource','ngRoute', 'home', 'user', 'multi']);
 
 // Configure the hashbang URLs using the $locationProvider services 
 mainApplicationModule.config(['$locationProvider',
